@@ -1,17 +1,18 @@
 <?php
 /**
  * Autor: David Galván Fontalba
- * Fecha: 24 / 9 / 2020
- */
-    $x = 10;
-    $y = 7;
+ * Fecha: 25 / 9 / 2020 
+ * */
+    $nombre = "Harry";
+    $numero = 28;
+    $null = NULL;
 ?>
 
 <!doctype html>
 <html lang="es">
     <head>
         <link rel="icon" href="" alt="">
-        <title>Script variables DF</title>
+        <title>Contenido Variable DF</title>
         <meta charset="utf-8">
         <meta name="author" content="David Galván Fontalba"/>
         <meta name="description" content="Script que carga unas variables específicas para sacar un resultado concreto."/>
@@ -20,11 +21,10 @@
     <body>
         <section>
             <?php 
-                echo "<p>".$x." + ".$y." = ".($x+$y)."</p>";
-                echo "<p>".$x." - &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp".$y." = ".($x-$y)."</p>";
-                echo "<p>".$x." * ".$y." = ".($x*$y)."</p>";
-                echo "<p>".$x." / ".$y." = ".($x/$y)."</p>";
-                echo "<p>".$x." % ".$y." = ".($x%$y)."</p>";
+                echo '<p>'.var_dump($nombre).'</p>';
+                echo "<p>".$nombre."</p>";
+                echo '<p>'.var_dump($numero).'</p>';
+                echo "<p>".gettype($null)."</p>";
             ?>
         </section>
     </body>

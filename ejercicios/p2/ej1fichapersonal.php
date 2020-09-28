@@ -1,9 +1,8 @@
-<!--
-    Autor: David Galván Fontalba
-    Fecha: 24 / 9 / 2020
--->
-
 <?php
+/**
+ * Autor: David Galván Fontalba
+ * Fecha: 24 / 9 / 2020
+ */
     $nombre = "David";
     $apellidos = "Galván Fontalba";
     $img = "gatomascarilla.jpeg";
