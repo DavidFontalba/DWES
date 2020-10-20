@@ -2,7 +2,7 @@
 
 /**
  * Autor: David Galván Fontalba
- * Fecha: 13 / 10 / 2020
+ * Fecha: 19 / 10 / 2020
  */
 $carta = [
    "primero" => [

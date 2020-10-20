@@ -11,9 +11,11 @@ $formulario = array(
     "enviar" => array("submit", NULL, "Enviar")
 );
 
-function clearData($cadena){
+function clearData($cadena)
+{
     return stripslashes(htmlspecialchars(trim($cadena)));
 }
+
 ?>
 
 <!doctype html>
@@ -54,11 +56,10 @@ function clearData($cadena){
                 $msgErrorMail = "Mail requerido";
                 $todoOk = false;
             }
-            
         }
 
         if ($todoOk) {
-            echo $nombre." ".$apellidos."<br/>".$mail;
+            echo $nombre . " " . $apellidos . "<br/>" . $mail;
         } else {
             echo '<form action ="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '" method="POST">';
             foreach ($formulario as $name => $array) {
