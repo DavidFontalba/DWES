@@ -7,9 +7,8 @@ function clearData($cadena)
 function sumaDigitos($num)
 {
     $resultado = 0;
-    $aSumar = $num / 10;
     if ($num != 0) {
-        $resultado += ($num % 10) + sumaDigitos($aSumar);
+        $resultado += ($num % 10) + sumaDigitos($num / 10);
     } else {
         return 0;
     }
