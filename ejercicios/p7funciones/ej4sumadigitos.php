@@ -7,10 +7,11 @@ function clearData($cadena)
 function sumaDigitos($num)
 {
     $resultado = 0;
-    if (strlen($num) > 1) {
-        $resultado += sumaDigitos(array_sum(str_split($num)));
+    $aSumar = $num / 10;
+    if ($num != 0) {
+        $resultado += ($num % 10) + sumaDigitos($aSumar);
     } else {
-        return $num;
+        return 0;
     }
     return $resultado;
 }
