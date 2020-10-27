@@ -12,15 +12,11 @@ function clearData($cadena)
 }
 function aleatorios($cantidadNumeros, $min, $max)
 {
-    $random = rand($min, $max);
-    $result = [$random];
-    for ($i = 1; $i < $cantidadNumeros; $i++) {
-        $random = rand($min, $max);
-        if (in_array($random, $result)) {
-            $i--;
-        } else {
-            array_push($result, $random);
-        }
+    $result = [];
+    for ($i = 0; $i < $cantidadNumeros; $i++) {
+        do { $random = rand($min, $max);
+        } while (in_array($random, $result));
+        array_push($result, $random);
     }
     return $result;
 }
@@ -173,9 +169,6 @@ if (isset($_POST['envio'])) {
 }
 ?>
 
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -192,14 +185,14 @@ if (isset($_POST['envio'])) {
 
     if (isset($_POST['envioTest'])) {
         echo '<p>Nivel: ' . $_SESSION['nivel'] . '</p><p>Número de verbos: ' . $_SESSION['numVerbos'] . ' </p>';
+        echo '<form action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '" method="POST">';
         echo '<table><tr><td scope="col">Español</td><td scope="col">Infinitivo</td><td scope="col">Pasado</td><td scope="col">Participio</td></tr>';
         //Repito la tabla de antes mostrando si el resultado es correcto o no
-        // echo var_dump($_POST);
         $arrayDeKeys = [];
         foreach ($_POST as $key => $valor) {
             array_push($arrayDeKeys, $key);
         }
-
+        $aciertos = 0;
         //Recorro los índices de los verbos generados aleatoriamente
         foreach ($_SESSION['randomIndices'] as $iVerbo) {
             echo '<tr>';
@@ -207,10 +200,11 @@ if (isset($_POST['envio'])) {
             $i = 0;
             //Recorro todas las formas, incluso la traducción de los verbos que recorro
             foreach ($verbosIrregulares[$iVerbo] as $iForma) {
-                if ($iForma == $_POST[$iVerbo.",".$i]){
-                    echo '<td><input style="background-color: green" type="text" name="resultado" value="" placeholder="' . $iForma . '" disabled></input></td>';
+                if (strtoupper($iForma) == strtoupper($_POST[$iVerbo.",".$i])){
+                    $aciertos++;
+                    echo '<td><input style="color: green" type="text" name="' . $iVerbo . ',' . $i . '" value="' . $iForma . '"></input></td>';
                 } else if (in_array($iVerbo.",".$i, $arrayDeKeys)) {
-                    echo '<td><input style="background-color: red" type="text" name="resultado" value="" placeholder="' . $_POST[$iVerbo.",".$i] . ' (' . $iForma . ')" disabled></input></td>';
+                    echo '<td><input style="color: red" type="text" name="' . $iVerbo . ',' . $i . '" value="' . $_POST[$iVerbo.",".$i] . '"></input></td>';
                 } else {
                     echo '<td><input type="text" name="resultado" value="" placeholder="' . $iForma . '" disabled></input></td>';
                 }
@@ -220,7 +214,9 @@ if (isset($_POST['envio'])) {
             }
             echo '</tr>';
         }
-        echo '</table>';
+        echo '<tr><td>Aciertos: '.$aciertos.'<td></tr>';
+        echo '<tr><td><input type="submit" name="envioTest" value="Corregir test"></input></td></tr>';
+        echo '</table></form>';
     } else if ($allOk) {
         echo '<p>Nivel: ' . $nivel . '</p><p>Número de verbos: ' . $numVerbos . ' </p>';
         echo '<form action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '" method="POST">';
@@ -244,7 +240,7 @@ if (isset($_POST['envio'])) {
                 $i++;
             }
         }
-        echo '</tr><tr><td><input type="submit" name="envioTest" value="Enviar test"></input></td></tr>';
+        echo '</tr><tr><td><input type="submit" name="envioTest" value="Corregir test"></input></td></tr>';
         echo '</table></form>';
     } else {
         //Formulario y radio buttons
@@ -261,5 +257,4 @@ if (isset($_POST['envio'])) {
     }
     ?>
 </body>
-
 </html>
