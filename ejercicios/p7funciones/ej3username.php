@@ -14,8 +14,7 @@ function normalize($string)
 {
     $badChars = 'ÁÉÍÓÚáéíóú';
     $goodChars = 'AEIOUaeiou';
-    $string = strtr(utf8_decode($string), utf8_decode($badChars), $goodChars);
-    return utf8_encode(strtolower($string));
+    return utf8_encode(strtolower(strtr(utf8_decode($string), utf8_decode($badChars), $goodChars)));
 }
 ?>
 <html lang="es">
