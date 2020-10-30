@@ -31,10 +31,15 @@ function normalize($string)
 <body>
     <section>
         <?php
-        array_map(function ($user) {
-            echo '<p>' . $user['nombre'] . " " . $user['apellido1'] . " " . $user['apellido2'] . ": ";
-            echo substr(normalize($user['apellido1']), 0, 2) . substr(normalize($user['apellido2']), 0, 2) . substr(normalize($user['nombre']), 0, 1) . '</p>';
+        $arrayUsernames = array_map(function ($user) {
+            return substr(normalize($user['apellido1']), 0, 2) . substr(normalize($user['apellido2']), 0, 2) . substr(normalize($user['nombre']), 0, 1);
         }, $aUsuarios);
+
+        for ($i = 0; $i < sizeof($aUsuarios); $i++) {
+            echo '<p>' . $aUsuarios[$i]['nombre'] . " " . $aUsuarios[$i]['apellido1'] . " " . $aUsuarios[$i]['apellido2'] . ": ";
+            echo $arrayUsernames[$i]."</p>";
+        }
+
         ?>
 
     </section>
