@@ -1,7 +1,7 @@
 <?php
-$ejercicios = array(
+$ejercicios = [
   "Ejercicios práctica 7, funciones" =>
-  array(
+  [
     "Ej 5: Lista de enlaces" => "index.php",
     "Ej 4: Suma dígitos" => "ejercicios/p7funciones/ej4sumadigitos.php",
     "Ej 3: Genera nombre de usuario" => "ejercicios/p7funciones/ej3username.php",
@@ -10,45 +10,46 @@ $ejercicios = array(
     "Prueba 2, arrayMap" => "ejercicios/p7funciones/pruebasFunc/arrayMap.php",
     "Prueba 1, variables estáticas" => "ejercicios/p7funciones/pruebasFunc/estaticas.php"
 
-  ),
+  ],
 
   "Ejercicios práctica 6, formularios" =>
-  array(
+  [
     "Ej 5: Test de verbos irregulares" => "ejercicios/p6formularios/ej5testirregulares.php",
+    "Ej 4: Sumar números" => "ejercicios/p6formularios/ej4sumarnumeros.php",
     "Prueba 2, formulario php" => "ejercicios/p6formularios/pruebaConFormularios/formulario2.php",
     "Prueba 1, formulario html" => "ejercicios/p6formularios/pruebaConFormularios/formulario1.html"
-  ),
+  ],
 
   "Ejercicios práctica 5, arrays" =>
-  array(
+  [
     "Ej 4: Carta de un restaurante" => "ejercicios/p5arrays/ej4carta.php",
     "Ej 3: Array con información" => "ejercicios/p5arrays/ej3arrayInfo.php",
     "Ej 2: Alumnos aleatorios" => "ejercicios/p5arrays/ej2alumnoAleatorio.php",
     "Prueba 3" => "ejercicios/p5arrays/pruebasConProvincias/prueba3.php",
     "Prueba 2" => "ejercicios/p5arrays/pruebasConProvincias/prueba2.php",
     "Prueba 1" => "ejercicios/p5arrays/pruebasConProvincias/prueba.php"
-  ),
+  ],
 
   "Ejercicios práctica 4, bucles" =>
-  array(
+  [
     "Ej 5: Calendario" => "ejercicios/p4bucles/ej5calendario.php",
     "Ej 4: Paleta de colores" => "ejercicios/p4bucles/ej4colores.php",
     "Ej 3: Tablas de multiplicar" => "ejercicios/p4bucles/ej3tablamul.php",
     "Ej 2: Suma los 3 primeros pares" => "ejercicios/p4bucles/ej2pares.php",
     "Ej 1: Números 1 a 10" => "ejercicios/p4bucles/ej1nums.php"
-  ),
+  ],
 
   "Ejercicios práctica 3, condicionales" =>
-  array(
+  [
     "Ej 5: Distintos enlaces según usuario" => "ejercicios/p3if/ej5usuarios.php",
     "Ej 4: Estaciones" => "ejercicios/p3if/ej4cabeceraEstaciones.php",
     "Ej 3: Calcular edad" => "ejercicios/p3if/ej3calcularEdad.php",
     "Ej 2: Días según mes y año" => "ejercicios/p3if/ej2diasDelMes.php",
     "Ej 1: El mayor de dos números" => "ejercicios/p3if/ej1numMayor.php"
-  ),
+  ],
 
   "Ejercicios práctica 2, basicos" =>
-  array(
+  [
     "Ej 7: Tipos" => "ejercicios/p2/ej7tipos.php",
     "Ej 6: Harry" => "ejercicios/p2/ej6Harry.php",
     "Ej 5: Valor actual" => "ejercicios/p2/ej5valoractual.php",
@@ -56,8 +57,8 @@ $ejercicios = array(
     "Ej 3: Suma" => "ejercicios/p2/ej3suma.php",
     "Ej 2: Área círculo" => "ejercicios/p2/ej2areacirculo.php",
     "Ej 1: Ficha Personal" => "ejercicios/p2/ej1fichapersonal.php"
-  )
-);
+  ]
+];
 
 function crearLinks($temas)
 {
@@ -76,13 +77,13 @@ function crearLinks($temas)
 
 <head>
   <!-- Required meta tags -->
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-  <meta name="author" content="David Galván Fontalba"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="author" content="David Galván Fontalba" />
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous"/>
-  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/style.css" />
 
   <title>David Galván Fontalba</title>
 </head>

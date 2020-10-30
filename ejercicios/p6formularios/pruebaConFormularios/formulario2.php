@@ -26,7 +26,7 @@ function clearData($cadena)
     <title>Prueba DF</title>
     <meta charset="utf-8">
     <meta name="author" content="David Galván Fontalba" />
-    <meta name="description" content="Pruebas con arrays" />
+    <meta name="description" content="Pruebas con formularios" />
 
 </head>
 

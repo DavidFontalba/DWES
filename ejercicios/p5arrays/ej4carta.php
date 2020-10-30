@@ -114,7 +114,7 @@ $menus = [
          $sumaMenu += $carta[$plato][$value]["precio"];
          echo "<p>" . $value . "</p>";
       }
-      echo "<p>" . $sumaMenu . "€</p><br/>";
+      echo "<p>" . ($sumaMenu - ($sumaMenu*0.2)) . "€  (20% descuento)</p><br/>";
    }
 
    ?>
