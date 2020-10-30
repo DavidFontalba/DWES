@@ -9,6 +9,14 @@ $aUsuarios = array(
     array('nombre' => 'Elena', 'apellido1' => 'Pérez', 'apellido2' => ''),
 
 );
+
+function normalize($string)
+{
+    $badChars = 'ÁÉÍÓÚáéíóú';
+    $goodChars = 'AEIOUaeiou';
+    $string = strtr(utf8_decode($string), utf8_decode($badChars), $goodChars);
+    return utf8_encode(strtolower($string));
+}
 ?>
 <html lang="es">
 
@@ -25,8 +33,8 @@ $aUsuarios = array(
     <section>
         <?php
         array_map(function ($user) {
-            echo '<p>'.$user['nombre']." ".$user['apellido1']." ".$user['apellido2'].": ";
-            echo substr(strtolower($user['apellido1']),0,2).substr(strtolower($user['apellido2']),0,2).substr(strtolower($user['nombre']),0,1).'</p>';
+            echo '<p>' . $user['nombre'] . " " . $user['apellido1'] . " " . $user['apellido2'] . ": ";
+            echo substr(normalize($user['apellido1']), 0, 2) . substr(normalize($user['apellido2']), 0, 2) . substr(normalize($user['nombre']), 0, 1) . '</p>';
         }, $aUsuarios);
         ?>
 
