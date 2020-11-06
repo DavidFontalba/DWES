@@ -1,18 +1,21 @@
 <?php
 session_start();
+if (isset($_POST["send"])) {
+    if ((time() - $_SESSION["horaInicio"]) > 10) {
+        unset($_SESSION["count"]);
+        unset($_SESSION["horaInicio"]);
+        session_destroy();
+        session_start();
+        session_regenerate_id();
+    } else {
+        $_SESSION["count"]++;
+    }
+}
 if (!isset($_SESSION["count"])) {
     $_SESSION["count"] = 0;
 }
 if (!isset($_SESSION["horaInicio"])) {
     $_SESSION["horaInicio"] = time();
-}
-if (isset($_POST["send"])) {
-    if ((time() - $_SESSION["horaInicio"]) > 30) {
-        $_SESSION["horaInicio"] = time();
-        $_SESSION["count"] = 0;
-    } else {
-        $_SESSION["count"]++;
-    }
 }
 
 ?>
