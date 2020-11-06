@@ -6,7 +6,7 @@ if (isset($_POST["send"])) {
         unset($_SESSION["horaInicio"]);
         session_destroy();
         session_start();
-        session_regenerate_id();
+        session_regenerate_id(true);
     } else {
         $_SESSION["count"]++;
     }
