@@ -1,9 +1,4 @@
 <?php
-function clearData($cadena)
-{
-    return stripslashes(htmlspecialchars(trim($cadena)));
-}
-
 session_start();
 if (!isset($_SESSION["count"])) {
     $_SESSION["count"] = 0;
@@ -16,7 +11,7 @@ if (isset($_POST["send"])) {
         $_SESSION["horaInicio"] = time();
         $_SESSION["count"] = 0;
     } else {
-        $_SESSION["count"] = $_SESSION["count"] + 1;
+        $_SESSION["count"]++;
     }
 }
 
@@ -37,7 +32,7 @@ if (isset($_POST["send"])) {
     <section>
         <?php
         echo "<p>" . $_SESSION['count'] . "</p>";
-        echo "<form action=\"".htmlspecialchars($_SERVER["PHP_SELF"])."\" method=\"POST\"><input type=\"submit\" name=\"send\" value=\"Contar\"></input></form>";
+        echo "<form action=\"" . htmlspecialchars($_SERVER["PHP_SELF"]) . "\" method=\"POST\"><input type=\"submit\" name=\"send\" value=\"Contar\"></input></form>";
         ?>
 
     </section>

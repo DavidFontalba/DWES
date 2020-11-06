@@ -2,9 +2,9 @@
 $ejercicios = [
   "Ejercicios práctica 8, cookies y sesiones" =>
   [
-    "Contador" => ["ejercicios/p8cookies/ejcontador.php", ""],
-    "Ej 3: Registro" => ["ejercicios/p8cookies/ej3formregistro.php"],
-    "Ej 1: Crear/borrar cookies" => ["ejercicios/p8cookies/ej1crearborrar.php"]
+    "Contador" => ["ejercicios/p8cookies/ejcontador.php", "https://github.com/DavidFontalba/DWES/blob/master/ejercicios/p8cookies/ejcontador.php"],
+    "Ej 3: Registro" => ["ejercicios/p8cookies/ej3formregistro.php", "https://github.com/DavidFontalba/DWES/blob/master/ejercicios/p8cookies/ej3formregistro.php"],
+    "Ej 1: Crear/borrar cookies" => ["ejercicios/p8cookies/ej1crearborrar.php", "https://github.com/DavidFontalba/DWES/blob/master/ejercicios/p8cookies/ej1crearborrar.php"]
   ],
 
   "Ejercicios práctica 7, funciones" =>
