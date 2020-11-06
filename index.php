@@ -1,5 +1,12 @@
 <?php
 $ejercicios = [
+  "Ejercicios práctica 8, cookies y sesiones" =>
+  [
+    "Contador" => ["ejercicios/p8cookies/ejcontador.php", ""],
+    "Ej 3: Registro" => ["ejercicios/p8cookies/ej3formregistro.php"],
+    "Ej 1: Crear/borrar cookies" => ["ejercicios/p8cookies/ej1crearborrar.php"]
+  ],
+
   "Ejercicios práctica 7, funciones" =>
   [
     "Ej 5: Lista de enlaces" => ["index.php", "https://github.com/DavidFontalba/DWES/blob/master/index.php"],
