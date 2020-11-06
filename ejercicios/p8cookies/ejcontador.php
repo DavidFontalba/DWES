@@ -8,6 +8,7 @@ if (isset($_POST["send"])) {
         session_start();
         session_regenerate_id(true);
     } else {
+        $_SESSION["horaInicio"] = time();
         $_SESSION["count"]++;
     }
 }
