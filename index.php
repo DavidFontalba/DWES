@@ -1,9 +1,13 @@
 <?php
 $ejercicios = [
+  "Ejercicios práctica 9, ficheros" =>
+  [
+    "Galería de imágenes" =>["./ejercicios/p9files/pruebas/subidaarchivos.php", "https://github.com/DavidFontalba/DWES/blob/master/ejercicios/p9files/pruebas/subidaarchivos.php"]
+  ],
   "Ejercicios práctica 8, cookies y sesiones" =>
   [
-    "Auth" => ["./ejercicios/p8cookies/ejauth/ejauth.php", ""],
-    "Agenda de tareas" => ["ejercicios/p8cookies/ejtareas.php", ""],
+    "Auth" => ["./ejercicios/p8cookies/ejauth/ejauth.php", "https://github.com/DavidFontalba/DWES/blob/master/ejercicios/p8cookies/ejauth/ejauth.php"],
+    "Agenda de tareas" => ["ejercicios/p8cookies/ejtareas.php", "https://github.com/DavidFontalba/DWES/blob/master/ejercicios/p8cookies/ejtareas.php"],
     "Contador" => ["ejercicios/p8cookies/ejcontador.php", "https://github.com/DavidFontalba/DWES/blob/master/ejercicios/p8cookies/ejcontador.php"],
     "Ej 3: Registro" => ["ejercicios/p8cookies/ej3formregistro.php", "https://github.com/DavidFontalba/DWES/blob/master/ejercicios/p8cookies/ej3formregistro.php"],
     "Ej 1: Crear/borrar cookies" => ["ejercicios/p8cookies/ej1crearborrar.php", "https://github.com/DavidFontalba/DWES/blob/master/ejercicios/p8cookies/ej1crearborrar.php"]
@@ -75,7 +79,7 @@ function crearLinks($temas)
     echo "<section><h3>" . $titulo . "</h3>";
 
     foreach ($ejercicios as $ejercicio => $array) {
-      echo '<p>'; 
+      echo '<p>';
       if (!empty($array[1])) echo '<a href="' . $array[1] . '"target="_blank"><img src="./img/GitHub-Mark-32px.png" alt="GitHub logo"><img></a>';
       echo '  <a href="' . $array[0] . '"target="_blank">' . $ejercicio . '</a></p>';
     }
