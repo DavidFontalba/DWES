@@ -5,7 +5,7 @@
  */
     $nombre = "David";
     $apellidos = "Galván Fontalba";
-    $img = "gatomascarilla.jpeg";
+    $img = "../../img/gatomascarilla.jpeg";
     $edad = "22"
 ?>
 
