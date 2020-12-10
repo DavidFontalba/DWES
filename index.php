@@ -6,6 +6,7 @@ $ejercicios = [
   ],
   "Ejercicios práctica 8, cookies y sesiones" =>
   [
+    "Buscacovid" => ["./ejercicios/p8cookies/buscacovid/juego.php", ""],
     "Auth" => ["./ejercicios/p8cookies/ejauth/ejauth.php", "https://github.com/DavidFontalba/DWES/blob/master/ejercicios/p8cookies/ejauth/ejauth.php"],
     "Agenda de tareas" => ["ejercicios/p8cookies/ejtareas.php", "https://github.com/DavidFontalba/DWES/blob/master/ejercicios/p8cookies/ejtareas.php"],
     "Contador" => ["ejercicios/p8cookies/ejcontador.php", "https://github.com/DavidFontalba/DWES/blob/master/ejercicios/p8cookies/ejcontador.php"],
@@ -99,6 +100,7 @@ function crearLinks($temas)
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="./img/favicon.svg">
 
   <title>David Galván Fontalba</title>
 </head>
@@ -107,7 +109,7 @@ function crearLinks($temas)
   <div class="container">
     <div id="resume-header" class="row">
       <div class="col-3">
-        <img id="profile-picture" src="https://ui-avatars.com/api/?name=Dwes+Doe&size=255" alt="">
+        <img id="profile-picture" src="./img/favicon.svg" alt="">
       </div>
       <div class="col">
         <h1><?php echo "David Galván Fontalba"; ?></h1>
