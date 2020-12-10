@@ -1,12 +1,16 @@
 <?php
 $ejercicios = [
+  "Ejercicios práctica 10, objetos" => [
+    "Mascotas_autoload" => ["./ejercicios/p10objetos/mascotas_autoload/index.php", "https://github.com/DavidFontalba/DWES/tree/master/ejercicios/p10objetos/mascotas_autoload"],
+    "Mascotas" => ["./ejercicios/p10objetos/mascotas/index.php","https://github.com/DavidFontalba/DWES/tree/master/ejercicios/p10objetos/mascotas"]
+  ],
   "Ejercicios práctica 9, ficheros" =>
   [
     "Galería de imágenes" =>["./ejercicios/p9files/pruebas/subidaarchivos.php", "https://github.com/DavidFontalba/DWES/blob/master/ejercicios/p9files/pruebas/subidaarchivos.php"]
   ],
   "Ejercicios práctica 8, cookies y sesiones" =>
   [
-    "Buscacovid" => ["./ejercicios/p8cookies/buscacovid/juego.php", ""],
+    "Buscacovid" => ["./ejercicios/p8cookies/buscacovid/juego.php", "https://github.com/DavidFontalba/DWES/tree/master/ejercicios/p8cookies/buscacovid"],
     "Auth" => ["./ejercicios/p8cookies/ejauth/ejauth.php", "https://github.com/DavidFontalba/DWES/blob/master/ejercicios/p8cookies/ejauth/ejauth.php"],
     "Agenda de tareas" => ["ejercicios/p8cookies/ejtareas.php", "https://github.com/DavidFontalba/DWES/blob/master/ejercicios/p8cookies/ejtareas.php"],
     "Contador" => ["ejercicios/p8cookies/ejcontador.php", "https://github.com/DavidFontalba/DWES/blob/master/ejercicios/p8cookies/ejcontador.php"],
