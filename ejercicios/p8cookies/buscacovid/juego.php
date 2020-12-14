@@ -29,13 +29,15 @@ function mostrarTablero()
  * Función que muestra el tablero de juego e implementa la funcionalidad.
  * Crea un enlace en cada casilla de la tabla y cuyo contenido es un cero.
  */
-function mostrarVisible($haPerdido = false)  // tablero de juego
+function mostrarVisible($checked, $haPerdido = false)  // tablero de juego
 {
-    echo "<table>";
+    echo '<form action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '" method="GET"><table>';
     for ($fila = 0; $fila < TAM; $fila++) {
         echo "<tr>";
         for ($columna = 0; $columna < TAM; $columna++) {
-            if ($_SESSION['visible'][$fila][$columna] == 1) {  //Si la casilla ya está visible
+            if ($_SESSION['visible'][$fila][$columna] == 2) {
+                echo "<td class='visible-bandera'><a href=\"juego.php?fila=$fila&columna=$columna&check=$checked\"><img style='width:40px' src='./img/stayhome.png'/></a></td>";
+            } else if ($_SESSION['visible'][$fila][$columna] == 1) {  //Si la casilla ya está visible
                 if ($_SESSION['tablero'][$fila][$columna] == 0) {
                     echo "<td class='visible-vacio'></td>"; //Mostramos vacío
                 } else if ($_SESSION['tablero'][$fila][$columna] != 9) {
@@ -48,14 +50,20 @@ function mostrarVisible($haPerdido = false)  // tablero de juego
                 if ($haPerdido) {
                     echo "<img src='./img/normal.png'/>";
                 } else {
-                    echo "<a href=\"juego.php?fila=$fila&columna=$columna\"><img src='./img/normal.png'/></a>";
+                    echo "<a href=\"juego.php?fila=$fila&columna=$columna&check=$checked\"><img src='./img/normal.png'/></a>";
                 }
                 echo "</td>";
             }
         }
         echo "</tr>";
     }
-    echo "</table>";
+
+    if ($checked) {
+        echo '<input checked type="checkbox" id="check" name="check" value="1"/>';
+    } else {
+        echo '<input type="checkbox" id="check" name="check" value="1"/>';
+    }
+    echo '<label for="check"> Marcar casilla </label><input type="submit" name="enviar" value="Marcar"/></table></form>';
 }
 
 
@@ -143,6 +151,7 @@ function clicCasilla($f, $c)
     if ($_SESSION['visible'][$f][$c] == 0) {
         /*Destapamos casilla*/
         $_SESSION['visible'][$f][$c] = 1;
+        return 0;
         /*Comprobamos mina; break recursividad */
         if ($_SESSION['tablero'][$f][$c] == 9) {
             return -1;
@@ -176,13 +185,27 @@ define("NUMCASILLAS", TAM * TAM);
 $resultado = "";
 //Inicio y definición de sesión y variables.
 session_start();
+
 if (!isset($_SESSION['tablero'])) {
     $_SESSION['tablero'] = array();
     $_SESSION['visible'] = array();
     crearTablero();
 }
 /* Desarrollo de la jugada */
-if (isset($_GET['fila'])) {
+$checked = false;
+if (isset($_GET["check"]) && $_GET["check"] == 1) {
+    $checked = true;
+    switch ($_SESSION['visible'][$_GET['fila']][$_GET['columna']]) {
+        case 0:
+            $_SESSION['visible'][$_GET['fila']][$_GET['columna']] = 2;
+            break;
+        
+        case 2:
+            $_SESSION['visible'][$_GET['fila']][$_GET['columna']] = 0;
+            break;
+    }
+    
+} else if (isset($_GET['fila'])) {
     $filEntrada = $_GET['fila'];
     $colEntrada = $_GET['columna'];
     $resultado = clicCasilla($filEntrada, $colEntrada) ?? "";
@@ -207,10 +230,10 @@ if (isset($_GET['fila'])) {
     //mostrarTablero();
     echo "<br/>";
     if ($resultado == -1) { //pierde
-        mostrarVisible(true);
+        mostrarVisible($checked, true);
         echo "<p>¡Perdiste!</p>";
     } else {
-        mostrarVisible();
+        mostrarVisible($checked);
         if ($resultado == 1) { //gana
             echo "<p>¡Felicidades, has ganado!</p>";
         }
