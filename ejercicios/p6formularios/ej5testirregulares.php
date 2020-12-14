@@ -14,7 +14,8 @@ function aleatorios($cantidadNumeros, $min, $max)
 {
     $result = [];
     for ($i = 0; $i < $cantidadNumeros; $i++) {
-        do { $random = rand($min, $max);
+        do {
+            $random = rand($min, $max);
         } while (in_array($random, $result));
         array_push($result, $random);
     }
@@ -174,17 +175,22 @@ if (isset($_POST['envio'])) {
 
 <head>
     <meta charset="UTF-8" />
+    <link rel="icon" href="../../../img/favicon.svg" alt="Logo David Fontalba">
+    <link rel="stylesheet" href="./css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="David Galván Fontalba" />
     <title>Test de verbos irregulares DF</title>
 </head>
 
 <body>
-    <h1>Test de verbos irregulares</h1>
+    <header>
+        <img id="logo" src="../../../img/favicon.svg" />
+        <h1>Test de verbos irregulares</h1>
+    </header>
     <?php
 
     if (isset($_POST['envioTest'])) {
-        echo '<p>Nivel: ' . $_SESSION['nivel'] . '</p><p>Número de verbos: ' . $_SESSION['numVerbos'] . ' </p>';
+        echo '<div><p>Nivel: ' . $_SESSION['nivel'] . '</p><p>Número de verbos: ' . $_SESSION['numVerbos'] . ' </p></div>';
         echo '<form action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '" method="POST">';
         echo '<table><tr><td scope="col">Español</td><td scope="col">Infinitivo</td><td scope="col">Pasado</td><td scope="col">Participio</td></tr>';
         //Repito la tabla de antes mostrando si el resultado es correcto o no
@@ -200,25 +206,24 @@ if (isset($_POST['envio'])) {
             $i = 0;
             //Recorro todas las formas, incluso la traducción de los verbos que recorro
             foreach ($verbosIrregulares[$iVerbo] as $iForma) {
-                if (strtoupper($iForma) == strtoupper($_POST[$iVerbo.",".$i])){
+                if (strtoupper($iForma) == strtoupper($_POST[$iVerbo . "," . $i])) {
                     $aciertos++;
-                    echo '<td><input style="color: green" type="text" name="' . $iVerbo . ',' . $i . '" value="' . $iForma . '"></input></td>';
-                } else if (in_array($iVerbo.",".$i, $arrayDeKeys)) {
-                    echo '<td><input style="color: red" type="text" name="' . $iVerbo . ',' . $i . '" value="' . $_POST[$iVerbo.",".$i] . '"></input></td>';
+                    echo '<td><input style="color: green" type="text" name="' . $iVerbo . ',' . $i . '" value="' . $iForma . '" readonly></input></td>';
+                } else if (in_array($iVerbo . "," . $i, $arrayDeKeys)) {
+                    echo '<td><input style="color: red" type="text" name="' . $iVerbo . ',' . $i . '" value="' . $_POST[$iVerbo . "," . $i] . '"></input></td>';
                 } else {
                     echo '<td><input type="text" name="resultado" value="" placeholder="' . $iForma . '" disabled></input></td>';
                 }
                 $i++;
                 next($verbosIrregulares[$iVerbo]);
-
             }
             echo '</tr>';
         }
-        echo '<tr><td>Aciertos: '.$aciertos.'<td></tr>';
+        echo '<tr><td>Aciertos: ' . $aciertos . '<td></tr>';
         echo '<tr><td><input type="submit" name="envioTest" value="Corregir test"></input></td></tr>';
         echo '</table></form>';
     } else if ($allOk) {
-        echo '<p>Nivel: ' . $nivel . '</p><p>Número de verbos: ' . $numVerbos . ' </p>';
+        echo '<div><p>Nivel: ' . $nivel . '</p><p>Número de verbos: ' . $numVerbos . ' </p></div>';
         echo '<form action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '" method="POST">';
         echo '<table><tr><td scope="col">Español</td><td scope="col">Infinitivo</td><td scope="col">Pasado</td><td scope="col">Participio</td></tr>';
         $randomIndices = aleatorios($numVerbos, 0, sizeof($verbosIrregulares) - 1);
@@ -244,7 +249,7 @@ if (isset($_POST['envio'])) {
         echo '</table></form>';
     } else {
         //Formulario y radio buttons
-        echo '<form action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '" method="POST"><label>Elige un nivel de dificultad: </label>';
+        echo '<div><form action="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '" method="POST"><label>Elige un nivel de dificultad: </label>';
         for ($i = 0; $i < sizeof($configNivel); $i++) {
             echo '<input type="' . $configNivel[$i][0] . '" name="' . $configNivel[$i][1] . '" value="' . $configNivel[$i][2] . '">' . $configNivel[$i][2] . '</input>';
         }
@@ -253,8 +258,9 @@ if (isset($_POST['envio'])) {
         //Inputs
         echo '<label>Introduce cuántos verbos irregulares quieres superar: </label>';
         echo '<input type="' . $configVerbos[0][0] . '" name="' . $configVerbos[0][1] . '" placeholder="' . $configVerbos[0][2] . '" value=""/>';
-        echo '<br/><input type="' . $configVerbos[1][0] . '" name="' . $configVerbos[1][1] . '" value="' . $configVerbos[1][2] . '"/></form>';
+        echo '<br/><input type="' . $configVerbos[1][0] . '" name="' . $configVerbos[1][1] . '" value="' . $configVerbos[1][2] . '"/></form></div>';
     }
     ?>
 </body>
+
 </html>

@@ -63,7 +63,7 @@ function mostrarVisible($checked, $haPerdido = false)  // tablero de juego
     } else {
         echo '<input type="checkbox" id="check" name="check" value="1"/>';
     }
-    echo '<label for="check"> Marcar casilla </label><input type="submit" name="enviar" value="Marcar"/></table></form>';
+    echo '<label for="check"> Marcar casilla </label><br/><input type="submit" name="enviar" value="Marcar"/></table></form>';
 }
 
 
@@ -151,7 +151,6 @@ function clicCasilla($f, $c)
     if ($_SESSION['visible'][$f][$c] == 0) {
         /*Destapamos casilla*/
         $_SESSION['visible'][$f][$c] = 1;
-        return 0;
         /*Comprobamos mina; break recursividad */
         if ($_SESSION['tablero'][$f][$c] == 9) {
             return -1;
@@ -199,12 +198,11 @@ if (isset($_GET["check"]) && $_GET["check"] == 1) {
         case 0:
             $_SESSION['visible'][$_GET['fila']][$_GET['columna']] = 2;
             break;
-        
+
         case 2:
             $_SESSION['visible'][$_GET['fila']][$_GET['columna']] = 0;
             break;
     }
-    
 } else if (isset($_GET['fila'])) {
     $filEntrada = $_GET['fila'];
     $colEntrada = $_GET['columna'];
@@ -216,17 +214,20 @@ if (isset($_GET["check"]) && $_GET["check"] == 1) {
 <html lang="es">
 
 <head>
-    <link rel="icon" href="" alt="">
+    <link rel="icon" href="../../../img/favicon.svg" alt="Logo David Fontalba">
     <title>Buscaminas DF</title>
     <meta charset="utf-8">
     <meta name="author" content="David Galván Fontalba" />
     <meta name="description" content="Buscaminas" />
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style.css" />
 </head>
 
 <body>
+    <header>
+        <img id="logo" src="../../../img/favicon.svg" />
+        <a href="cerrarsesion.php">Reiniciar</a>
+    </header>
     <?php
-    echo '<div class="reiniciar"><a href="cerrarsesion.php">Reiniciar</a></div>';
     //mostrarTablero();
     echo "<br/>";
     if ($resultado == -1) { //pierde
@@ -239,6 +240,7 @@ if (isset($_GET["check"]) && $_GET["check"] == 1) {
         }
     }
     ?>
+    <footer><p>David Galván Fontalba</p></footer>
 </body>
 
 </html>

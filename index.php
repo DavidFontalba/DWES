@@ -2,11 +2,11 @@
 $ejercicios = [
   "Ejercicios práctica 10, objetos" => [
     "Mascotas_autoload" => ["./ejercicios/p10objetos/mascotas_autoload/index.php", "https://github.com/DavidFontalba/DWES/tree/master/ejercicios/p10objetos/mascotas_autoload"],
-    "Mascotas" => ["./ejercicios/p10objetos/mascotas/index.php","https://github.com/DavidFontalba/DWES/tree/master/ejercicios/p10objetos/mascotas"]
+    "Mascotas" => ["./ejercicios/p10objetos/mascotas/index.php", "https://github.com/DavidFontalba/DWES/tree/master/ejercicios/p10objetos/mascotas"]
   ],
   "Ejercicios práctica 9, ficheros" =>
   [
-    "Galería de imágenes" =>["./ejercicios/p9files/pruebas/subidaarchivos.php", "https://github.com/DavidFontalba/DWES/blob/master/ejercicios/p9files/pruebas/subidaarchivos.php"]
+    "Galería de imágenes" => ["./ejercicios/p9files/pruebas/subidaarchivos.php", "https://github.com/DavidFontalba/DWES/blob/master/ejercicios/p9files/pruebas/subidaarchivos.php"]
   ],
   "Ejercicios práctica 8, cookies y sesiones" =>
   [
@@ -120,25 +120,17 @@ function crearLinks($temas)
         <h2><?php echo "DWES"; ?></h2>
         <ul>
           <li><?php echo "Mail: a19gafoda@iesgrancapitan.org"; ?></li>
-          <li><?php echo "Twitter: @DavidFontalba"; ?></li>
+          <li><?php echo "Twitter: <a href='https://twitter.com/FontalbaDavid' target='_blank'>@FontalbaDavid</a>"; ?></li>
         </ul>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <h2 class="border-bottom-gray">Carrer Summary</h2>
-        <p>
-
-        </p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
         <div>
-          <h3 class="border-bottom-gray">Work Experience</h3>
+          <h3 class="border-bottom-gray">Listado de ejercicios en PHP</h3>
           <?php crearLinks($ejercicios); ?>
         </div>
-        <div>
+        <!-- <div>
           <h3 class="border-bottom-gray">Projects</h3>
           <div class="project">
             <h5>Project X</h5>
@@ -170,10 +162,10 @@ function crearLinks($temas)
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="col-3">
-        <h3 class="border-bottom-gray">Skills & Tools</h3>
+        <h3 class="border-bottom-gray">Conocimientos</h3>
         <h4>Backend</h4>
         <ul>
           <li>PHP</li>
@@ -187,16 +179,22 @@ function crearLinks($temas)
         <ul>
           <li>Bootstrap</li>
         </ul>
-        <h3 class="border-bottom-gray">Languages</h3>
+        <h4>Lenguajes de programación</h4>
         <ul>
-          <li>Spanish</li>
-          <li>English</li>
+          <li>JavaScript</li>
+          <li>Java</li>
+          <li>Python</li>
+        </ul>
+        <h3 class="border-bottom-gray">Idiomas</h3>
+        <ul>
+          <li>Español</li>
+          <li>Inglés</li>
         </ul>
       </div>
     </div>
     <div id="resume-footer" class="row">
       <div class="col">
-        Designed by @hectorbenitez
+        Designed by @hectorbenitez modified by @FontalbaDavid
       </div>
     </div>
   </div>
